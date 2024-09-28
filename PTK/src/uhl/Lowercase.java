@@ -2,7 +2,7 @@ package uhl;
 
 import java.util.Scanner;
 
-public class HelloWorld {
+public class Lowercase {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
