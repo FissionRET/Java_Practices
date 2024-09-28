@@ -1,6 +1,8 @@
 package PhamQuangSang;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class p_28092024 {
     public static boolean checkLowerChar(char c) {
@@ -63,6 +65,31 @@ public class p_28092024 {
         return count;
     }
 
+    public static String calculateEquationString(String s) {
+        Pattern pattern = Pattern.compile("([+-])?(\\d+)");
+        Matcher matcher = pattern.matcher(s);
+
+        int result = 0;
+        int temp = 0;
+        boolean isAddition = true;
+
+        while (matcher.find()) {
+            if (matcher.group(1) != null) {
+                if (matcher.group(1).equals("-")) {
+                    isAddition = false;
+                }
+            }
+            temp = Integer.parseInt(matcher.group(2));
+            if (!isAddition) {
+                temp = -temp;
+            }
+            result += temp;
+            isAddition = true;
+        }
+
+        return String.valueOf(result);
+    }
+
     public static void run_p01() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a character: ");
@@ -103,5 +130,13 @@ public class p_28092024 {
         String s = sc.nextLine();
         sc.close();
         System.out.println("Number of numerical characters: " + countNumericalCharacter(s));
+    }
+
+    public static void run_p05() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine();
+        sc.close();
+        System.out.println("Result: " + calculateEquationString(s));
     }
 }
