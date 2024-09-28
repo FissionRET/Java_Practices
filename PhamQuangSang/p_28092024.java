@@ -56,8 +56,8 @@ public class p_28092024 {
 
     public static int countNumericalCharacter(String s) {
         int count = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (Character.isDigit(s.charAt(i)))
+        for (char c : s.toCharArray()) {
+            if (Character.isDigit(c))
                 count++;
         }
         return count;
