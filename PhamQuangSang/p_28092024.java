@@ -45,6 +45,24 @@ public class p_28092024 {
         return i == s.length() && hasDigitsBeforeDecimal;
     }
 
+    public static float getMax(float args[]) {
+        float max = args[0];
+        for (int i = 1; i < args.length; i++) {
+            if (args[i] > max)
+                max = args[i];
+        }
+        return max;
+    }
+
+    public static int countNumericalCharacter(String s) {
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isDigit(s.charAt(i)))
+                count++;
+        }
+        return count;
+    }
+
     public static void run_p01() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a character: ");
@@ -65,5 +83,25 @@ public class p_28092024 {
             System.out.println(s + "is a numerical string");
         else
             System.out.println(s + "is not a numerical string");
+    }
+
+    public static void run_p03() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = sc.nextInt();
+        float args[] = new float[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter the element: ");
+            args[i] = sc.nextFloat();
+        }
+        sc.close();
+    }
+
+    public static void run_p04() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine();
+        sc.close();
+        System.out.println("Number of numerical characters: " + countNumericalCharacter(s));
     }
 }
