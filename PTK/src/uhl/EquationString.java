@@ -2,7 +2,7 @@ package uhl;
 
 import java.util.Scanner;
 
-public class EqualtionString {
+public class EquationString {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -10,7 +10,7 @@ public class EqualtionString {
         String x = sc.nextLine();
         sc.close();
 
-        int res = calculateEqualtionString(x);
+        int res = calculateEquationString(x);
 
         if(res != Integer.MIN_VALUE) {
             System.out.println(res);
@@ -19,7 +19,7 @@ public class EqualtionString {
         }
     }
 
-    private static int calculateEqualtionString(String inputString) {
+    private static int calculateEquationString(String inputString) {
         if (inputString == null || inputString.isEmpty()) {
             return Integer.MIN_VALUE;
         }
