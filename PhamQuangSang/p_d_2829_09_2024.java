@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class p_28092024 {
+public class p_d_2829_09_2024 {
     public static boolean checkLowerChar(char c) {
         if (c < 'a' || c > 'z')
             return false;
