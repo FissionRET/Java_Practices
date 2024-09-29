@@ -66,28 +66,59 @@ public class p_28092024 {
     }
 
     public static String calculateEquationString(String s) {
-        Pattern pattern = Pattern.compile("([+-])?(\\d+)");
-        Matcher matcher = pattern.matcher(s);
-
-        int result = 0;
-        int temp = 0;
-        boolean isAddition = true;
-
-        while (matcher.find()) {
-            if (matcher.group(1) != null) {
-                if (matcher.group(1).equals("-")) {
-                    isAddition = false;
+        try {
+            Pattern pattern = Pattern.compile("([+-])?(\\d+)");
+            Matcher matcher = pattern.matcher(s);
+            int result = 0;
+            int temp = 0;
+            boolean isAddition = true;
+            if (!s.matches("^[+-]?\\d+(\\s*[+-]\\s*\\d+)*$"))
+                throw new Exception();
+            while (matcher.find()) {
+                if (matcher.group(1) != null) {
+                    if (matcher.group(1).equals("-")) {
+                        isAddition = false;
+                    }
                 }
+                temp = Integer.parseInt(matcher.group(2));
+                if (!isAddition) {
+                    temp = -temp;
+                }
+                result += temp;
+                isAddition = true;
             }
-            temp = Integer.parseInt(matcher.group(2));
-            if (!isAddition) {
-                temp = -temp;
-            }
-            result += temp;
-            isAddition = true;
+            return String.valueOf(result);
+        } catch (Exception e) {
+            return "NaN";
         }
+    }
 
-        return String.valueOf(result);
+    public static boolean evaluateComparisonString(String s) {
+        String[] parts = s.split("[<>]=?|=");
+        int left, right;
+        try {
+         left = Integer.parseInt(parts[0]);
+         right = Integer.parseInt(parts[1]);
+        }catch(Exception e){
+            throw new IllegalArgumentException("Invalid comparison string: " + s);
+        }
+        String operator = s.substring(parts[0].length());
+        operator = operator.substring(0, operator.length() - parts[1].length());
+        // System.out.println(operator);
+        switch (operator) {
+            case ">":
+                return left > right;
+            case "<":
+                return left < right;
+            case "=":
+                return left == right;
+            case ">=":
+                return left >= right;
+            case "<=":
+                return left <= right;
+            default:
+                throw new IllegalArgumentException("Invalid comparison operator: " + operator);
+        }
     }
 
     public static void run_p01() {
@@ -138,5 +169,19 @@ public class p_28092024 {
         String s = sc.nextLine();
         sc.close();
         System.out.println("Result: " + calculateEquationString(s));
+    }
+
+    public static void run_p06() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a string: ");
+            String s = sc.nextLine();
+            sc.close();
+            System.out.println("Result: " + evaluateComparisonString(s));
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println("wtf");
+            throw e;
+        }
     }
 }
