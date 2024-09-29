@@ -1,6 +1,8 @@
 package uhl;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EquationString {
     public static void main(String[] args) {
@@ -24,13 +26,17 @@ public class EquationString {
             return Integer.MIN_VALUE;
         }
 
-        String[] parts = inputString.split(" ");
+        String regex = "(\\d+)([+\\-*/])(\\d+)";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(inputString.trim().replaceAll(" ", ""));
 
-        if (parts.length != 3) {
+        if (!matcher.matches()) {
             return Integer.MIN_VALUE;
         }
 
-        String op1 = parts[0], operator = parts[1], op2 = parts[2];
+        String op1 = matcher.group(1);
+        String operator = matcher.group(2);
+        String op2 = matcher.group(3);
 
         if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("/")) {
             return Integer.MIN_VALUE;
