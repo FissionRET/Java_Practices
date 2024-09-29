@@ -5,10 +5,18 @@ import java.util.Scanner;
 public class EqualtionString {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         System.out.print("Nhap xau phep toan: ");
         String x = sc.nextLine();
         sc.close();
-        System.out.println(calculateEqualtionString(x));
+
+        int res = calculateEqualtionString(x);
+
+        if(res != Integer.MIN_VALUE) {
+            System.out.println(res);
+        } else {
+            System.out.println("NaN");
+        }
     }
 
     private static int calculateEqualtionString(String inputString) {
