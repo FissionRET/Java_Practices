@@ -1,35 +1,25 @@
 package hvu.em.loe;
 
-public class Motor {
+public class Motor extends Vehicle {
     // Fields
 
-    public int price;
     private double maxSpeed;
 
     // Constructors
 
     public Motor() {
-        this.price = 0;
-        this.maxSpeed = 0;
+        super();
     }
 
-    public Motor(int price, double maxSpeed) {
-        this.price = price;
+    public Motor(int id, boolean isImported, double maxSpeed) {
+        super(id, isImported);
         this.maxSpeed = maxSpeed;
     }
 
     // Getter / setter
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public void setMaxSpeed(double maxSpeed) {
         this.maxSpeed = maxSpeed;
-    }
-
-    public int getPrice() {
-        return price;
     }
 
     public double getMaxSpeed() {
@@ -38,17 +28,15 @@ public class Motor {
 
     // Methods
 
-    public void display() {
-        System.out.println("Gia: " + getPrice() + " VND | Toc do toi da: " + getMaxSpeed() + " km/h");
-    }
-
     public static void main(String[] args) {
-        Motor m = new Motor(100000, 500.0);
-        m.display();
-
+        Motor m = new Motor(1, true, 200);
         Motor m1 = new Motor();
-        m1.setPrice(300000);
-        m1.setMaxSpeed(5000);
-        m1.display();
+
+        m1.setId(2);
+        m1.setImported(false);
+        m1.setMaxSpeed(100);
+
+        m.write();
+        m1.write();
     }
 }
