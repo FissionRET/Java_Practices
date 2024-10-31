@@ -32,7 +32,8 @@ public class StringComparison {
         String operator = matcher.group(2);
         String op2 = matcher.group(3);
 
-        if (!operator.equals("<") && !operator.equals(">") && !operator.equals("=") && !operator.equals("<=") && !operator.equals(">=")) {
+        if (!operator.equals("<") && !operator.equals(">") && !operator.equals("=") && !operator.equals("<=")
+                && !operator.equals(">=")) {
             return false;
         }
 

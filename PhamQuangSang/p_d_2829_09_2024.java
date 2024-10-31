@@ -179,8 +179,7 @@ public class p_d_2829_09_2024 {
             sc.close();
             System.out.println("Result: " + evaluateComparisonString(s));
         } catch (Exception e) {
-            // TODO: handle exception
-            System.out.println("wtf");
+            // System.out.println("wtf");
             throw e;
         }
     }
