@@ -1,7 +1,5 @@
 package hvu;
 
-import java.lang.annotation.Inherited;
-
 public class Book extends Document {
     // Props
 
