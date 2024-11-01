@@ -44,7 +44,7 @@ public class Staff {
         System.out.println("Staff 2:");
         staff2.display();
 
-        staff1.setIsLeturer(true);
+        staff1.setIsLeturer(false);
         staff1.setId(2);
 
         System.out.println("Staff 1 after update:");
