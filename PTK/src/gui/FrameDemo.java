@@ -19,7 +19,6 @@ public class FrameDemo {
     private JButton btnAdd;
     private JButton btnEdit;
     private JButton btnDelete;
-    private JTextArea txtAreaItems;
     private JPanel mailFormatPanel;
     private JRadioButton radioBtnHTML;
     private JRadioButton radioBtnPlainText;
@@ -27,9 +26,13 @@ public class FrameDemo {
     private JButton btnOK;
     private JButton btnExit;
     private JPanel buttonsPanel;
+    private JEditorPane editorEmails;
 
     public FrameDemo() {
 
+        btnAdd.addActionListener(e -> {
+
+        });
     }
 
     public static void main(String[] args) {
