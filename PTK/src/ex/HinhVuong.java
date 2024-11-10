@@ -1,14 +1,12 @@
 package ex;
 
 public class HinhVuong extends HinhChuNhat {
-    private int canh;
-
-    public HinhVuong(int canh) {
-        this.canh = canh;
+    public HinhVuong() {
+        super();
     }
 
     @Override
     public int getDienTich() {
-        return canh * canh;
+        return getChieuDai() * getChieuDai();
     }
 }
